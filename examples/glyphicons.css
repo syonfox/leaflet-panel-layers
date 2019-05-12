@@ -1,0 +1,17 @@
+
+/*This file must be included after bootstrap as it overrides some rules from it.*/
+.leaflet-panel-layers-group {
+    -webkit-box-sizing: unset;
+    -moz-box-sizing: unset;
+    box-sizing: unset;
+}
+.leaflet-panel-layers-item {
+    -webkit-box-sizing: unset;
+    -moz-box-sizing: unset;
+    box-sizing: unset;
+}
+.leaflet-panel-layers{
+    -webkit-box-sizing: unset;
+    -moz-box-sizing: unset;
+    box-sizing: unset;
+}
