@@ -310,27 +310,31 @@
 					L.DomUtil.addClass(groupdiv, 'expanded');
 			}
 
+
+			if(isOverlay && this.options.groupCheckboxes) {
+				//Create Check boxes
+				input = L.DomUtil.create('input', this.className + '-selector', groupdiv);
+				input.type = 'checkbox';
+				input.defaultChecked = false;
+				input.value = "group";
+				input.name = groupdata.name;
+
+				L.DomEvent.on(input, 'click', function (e) {
+					self._onGroupClick(e.target);
+				}, this);
+			}
+
 			grouplabel = L.DomUtil.create('label', this.className + '-grouplabel', groupdiv);
+
 			grouptit = L.DomUtil.create('span', this.className + '-title', grouplabel);
 			grouptit.innerHTML = groupdata.name;
 
 			//TODO: name
 
-			//Create Check boxes
-			input = L.DomUtil.create('input', this.className + '-selector');
-			input.type = 'checkbox';
-			input.defaultChecked = false;
-			input.value = "group";
-			input.name = groupdata.name;
-
-			L.DomEvent.on(input, 'click', function (e) {
-				self._onGroupClick(e.target);
-			}, this);
 
 
-			if(isOverlay && this.options.groupCheckboxes) {
-				groupdiv.appendChild(input);
-			}
+
+
 
 			return groupdiv;
 		},
