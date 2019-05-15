@@ -27,6 +27,7 @@ Tested in Leaflet 0.7.x, 1.4.x
 | Option	  | Default  | Description                       |
 | --------------- | -------- | ----------------------------------------- |
 | compact	  | false    | panel height minor of map height |
+| compactOffset | 0 | the distance from the bottom of the map that the panal will not expand into | 
 | collapsed       | false    | panel collapsed at startup |
 | autoZIndex 	  | true     | set zindex layer by order definition |
 | collapsibleGroups| false   | groups of layers is collapsible by button |
