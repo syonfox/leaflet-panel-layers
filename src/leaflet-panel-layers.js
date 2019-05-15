@@ -23,6 +23,7 @@
 			collapsed: false,
 			autoZIndex: true,
 			collapsibleGroups: false,
+			groupCheckboxes: true,
 			buildItem: null,				//function that return row item html node(or html string)
 			title: '',						//title of panel
 			className: '',					//additional class name for panel
@@ -327,7 +328,7 @@
 			}, this);
 
 
-			if(isOverlay) {
+			if(isOverlay && this.options.groupCheckboxes) {
 				groupdiv.appendChild(input);
 			}
 
