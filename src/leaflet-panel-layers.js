@@ -23,6 +23,8 @@
 			collapsed: false,
 			autoZIndex: true,
 			collapsibleGroups: false,
+			collapsiblePanal: true,
+			panalColapsed: false,
 			groupCheckboxes: true,
 			buildItem: null,				//function that return row item html node(or html string)
 			title: '',						//title of panel
@@ -481,11 +483,43 @@
             if (!this.options.compact)
                 L.DomUtil.create('div', this.className + '-margin', this._form);*/
 
+
+
+
+			if (this.options.collapsiblePanal) {
+
+				L.DomUtil.addClass(container, 'collapsible');
+
+				panalexp = L.DomUtil.create('i', this.className + '-icon');
+				if (this.options.panalColapsed === true)
+					panalexp.innerHTML = ' + ';
+				else
+					panalexp.innerHTML = ' - ';
+
+				L.DomEvent.on(panalexp, 'click', function () {
+					if (L.DomUtil.hasClass(container, 'minimized')) {
+						L.DomUtil.removeClass(container, 'minimized');
+						panalexp.innerHTML = ' + ';
+					} else {
+						L.DomUtil.addClass(container, 'minimized');
+						panalexp.innerHTML = ' - ';
+					}
+					self._updateHeight();
+				});
+
+				if (this.options.panalColapsed === true)
+					L.DomUtil.addClass(container, 'minimized');
+
+				container.appendChild(panalexp);
+			}
+
 			if (this.options.title) {
 				var titlabel = L.DomUtil.create('label', this.className + '-title');
 				titlabel.innerHTML = '<span>' + this.options.title + '</span>';
 				container.appendChild(titlabel);
 			}
+
+
 
 			container.appendChild(this._form);
 		},

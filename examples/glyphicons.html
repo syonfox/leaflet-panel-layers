@@ -71,6 +71,7 @@
     }
 
     var overLayers = [
+
         {
             name: "Bar",
             //icon: iconByName('bar'),
@@ -96,9 +97,11 @@
                     name: "Parking",
                     icon: iconByName('parking'),
                     layer: L.geoJson(Parking, {pointToLayer: featureToMarker })
-                }]
+                }
+            ]
         }
     ];
+
 
     var baseLayers = [
         {
@@ -122,8 +125,12 @@
 
     var panelLayers = new L.Control.PanelLayers(baseLayers, overLayers, {
         collapsibleGroups: true,
+        compact: true,
+        collapsed: true,
+        // title: "MY PANAL"
+        title: 'test'
 
-        collapsed: true
+
     });
 
     map.addControl(panelLayers);

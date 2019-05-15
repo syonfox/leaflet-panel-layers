@@ -17,6 +17,26 @@
 	overflow-x: hidden;
 	overflow-y: auto;
 }
+
+/*.hidden:not(.leaflet-panel-layers-title){*/
+/*    display:none !important;*/
+/*}*/
+.leaflet-panel-layers.minimized .leaflet-panel-layers-separator,
+.leaflet-panel-layers.minimized .leaflet-panel-layers-base,
+.leaflet-panel-layers.minimized .leaflet-panel-layers-overlays {
+    display: none;
+}
+
+
+
+
+.leaflet-panel-layers.colapsed {
+	width: auto;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+
 .leaflet-panel-layers.expanded .leaflet-panel-layers-list {
 	display: block;
 }
@@ -51,6 +71,7 @@
 	float: left;
 	padding-right: 25px;/*adding padding here creates some space between the icon and the label*/
 }
+
 .leaflet-panel-layers-group.collapsible:not(.expanded) {
 	height: 20px;
 }
@@ -58,6 +79,7 @@
 	height: 20px;
 	overflow: hidden;
 }
+
 .leaflet-panel-layers-group.collapsible:not(.expanded) .leaflet-panel-layers-item {
 	display: none;
 }
@@ -138,6 +160,8 @@
 	width: 20px;
 	background: #fff;
 }
+
+.leaflet-panel-layers.collapsible .leaflet-panel-layers-icon:first-child,
 .leaflet-panel-layers-group.collapsible .leaflet-panel-layers-icon:first-child {
 	min-width: 20px;
 	font-size: 16px;
