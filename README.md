@@ -235,6 +235,10 @@ $.getJSON('some/url/path.geojson', function(data){
 });
 ```
 
+**Using bootstrap glyphicons**
+
+To use bootstrap glyphicons make sure that you include `leaflet-panal-layers-glyphicons.css` **AFTER** bootstrap.
+You can then define an icon like with `'<i class="glyphicon glyphicon-glass"></i>'`
 
 # Build
 
