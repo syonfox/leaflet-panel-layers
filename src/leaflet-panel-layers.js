@@ -27,7 +27,9 @@
 			panalColapsed: false,
 			groupCheckboxes: true,
 			buildItem: null,				//function that return row item html node(or html string)
-			title: '',						//title of panel
+			title: '', //title of panel
+			iconPlus: '<i class="glyphicon glyphicon-plus  "></i>',
+			iconMinus: '<i class="glyphicon glyphicon-minus  "></i>',
 			className: '',					//additional class name for panel
 			position: 'topright'
 		},
@@ -321,7 +323,7 @@
 				input.value = "group";
 				input.name = groupdata.name;
 
-				L.DomEvent.on(input, 'click', function (e) {
+				L.DomEvent.on(input, 'click', function () {
 					self._onGroupClick(e.target);
 				}, this);
 			}
@@ -342,6 +344,8 @@
 		},
 
 		_onGroupClick: function(group) {
+
+
 
 			var i, input, obj,
 				inputs = this._form.getElementsByClassName(this.className + '-selector'),
@@ -436,7 +440,7 @@
 
 			this._refocusOnMap();
 		},
-
+        
 
 		_initLayout: function () {
 			var container = this._container = L.DomUtil.create('div', this.className);
@@ -487,23 +491,32 @@
 
 
 			if (this.options.collapsiblePanal) {
+				self = this;
 
 				L.DomUtil.addClass(container, 'collapsible');
 
 				panalexp = L.DomUtil.create('i', this.className + '-icon');
+
+				panalexp.setAttribute('iconPlus',  this.options.iconPlus);
+				panalexp.setAttribute('iconMinus',  this.options.iconMinus);
+
 				if (this.options.panalColapsed === true)
-					panalexp.innerHTML = ' + ';
+					panalexp.innerHTML = this.options.iconPlus ;
 				else
-					panalexp.innerHTML = ' - ';
+					panalexp.innerHTML = this.options.iconMinus;
 
 				L.DomEvent.on(panalexp, 'click', function () {
+					// var iconPlus = this.options.iconPlus;
+					// var iconMinus = this.options.iconMinus;
+					 //var test = e.iconPlus;
 					if (L.DomUtil.hasClass(container, 'minimized')) {
 						L.DomUtil.removeClass(container, 'minimized');
-						panalexp.innerHTML = ' + ';
+						this.innerHTML = this.getAttribute("iconMinus");
 					} else {
 						L.DomUtil.addClass(container, 'minimized');
-						panalexp.innerHTML = ' - ';
+						this.innerHTML = this.getAttribute("iconPlus");
 					}
+					//this._onPanalClick(panalexp);
 					self._updateHeight();
 				});
 
@@ -522,13 +535,17 @@
 
 
 			container.appendChild(this._form);
+
+
 		},
 
 		_updateHeight: function (h) {
 			h = h || this._map.getSize().y;
 
+			var rect = this._container.getBoundingClientRect();
+			console.log(rect.top, rect.right, rect.bottom, rect.left);
 			if (this.options.compact)
-				this._form.style.maxHeight = (h - this.options.compactOffset) + 'px';
+				this._form.style.maxHeight = (h -rect.top - this.options.compactOffset) + 'px';
 			else
 				this._form.style.height = h + 'px';
 		},
