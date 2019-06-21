@@ -79,7 +79,7 @@ Tested in Leaflet 0.7.x, 1.4.x
 	}
 ```
 
-**Multiple active layers with icons**
+**Multiple active layers with icons and tooltips**
 ```javascript
 var baseLayers = [
 	{
@@ -92,11 +92,13 @@ var overLayers = [
 	{
 		name: "Drinking Water",
 		icon: '<i class="icon icon-water"></i>',
+		tooltip: "This Shows where you can find drinking water.",
 		layer: L.geoJson(WaterGeoJSON)
 	},
 	{
 		active: true,
 		name: "Parking",
+		tooltip: "Avalibale parking",
 		icon: '<i class="icon icon-parking"></i>',
 		layer: L.geoJson(ParkingGeoJSON)
 	}

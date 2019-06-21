@@ -5,23 +5,22 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=0.8, user-scalable=no" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
-    <link rel="stylesheet" href="../src/leaflet-panel-layers.css" />
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="glyphicons.css" /> <!--Include glyphicons after bootstrap-->
-        <link rel="stylesheet" href="icons.css" />
+    <link rel="stylesheet" href="../src/leaflet-panel-layers.css" />
+    <link rel="stylesheet" href="../src/leaflet-panal-layers-glyphicons.css" /> <!--Include glyphicons after bootstrap-->
+    <link rel="stylesheet" href="icons.css" />
 
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 <h3><a href="../"><big>◄</big> Leaflet Panel Layers</a></h3>
-<h4> Collapsible panel</h4>
-<br />
+<h4> Syonfox Test Site</h4>
+
+
 <div id="map"></div>
 
-<div id="copy"><a href="http://labs.easyblog.it/">Labs</a> &bull; <a rel="author" href="http://labs.easyblog.it/stefano-cudini/">Stefano Cudini</a></div>
-
-<a href="https://github.com/stefanocudini/leaflet-panel-layers"><img id="ribbon" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+<a href="https://github.com/syonfox/leaflet-panel-layers"><img id="ribbon" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
 
 
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -76,6 +75,7 @@
             name: "Bar",
             //icon: iconByName('bar'),
             icon: '<i class="glyphicon glyphicon-glass  "></i>',
+            tooltip: 'This is where the bars are',
             layer: L.geoJson(Bar, {pointToLayer: featureToMarker })
         },
         {
@@ -96,6 +96,7 @@
                 {
                     name: "Parking",
                     icon: iconByName('parking'),
+                    tooltip: "This is where you can park",
                     layer: L.geoJson(Parking, {pointToLayer: featureToMarker })
                 }
             ]
@@ -123,17 +124,40 @@
         }
     ];
 
-    var panelLayers = new L.Control.PanelLayers(baseLayers, overLayers, {
+    var panelLayersb = new L.Control.PanelLayers(baseLayers, null, {
         collapsibleGroups: true,
         compact: true,
-        collapsed: true,
+        collapsed: false,
         // title: "MY PANAL"
-        title: 'test'
+        title: 'base'
+
+
+    });
+        var panelLayersa = new L.Control.PanelLayers(null, overLayers, {
+        collapsibleGroups: true,
+        compact: true,
+        collapsed: false,
+        // title: "MY PANAL"
+        title: 'overlay'
 
 
     });
 
-    map.addControl(panelLayers);
+        var panelLayersc = new L.Control.PanelLayers(null, overLayers, {
+        collapsibleGroups: true,
+        compact: true,
+        collapsed: true,
+        // title: "MY PANAL"
+        title: 'Overlay C',
+        iconPlus: glyphiconByName('chevron-up')
+
+    });
+
+    map.addControl(panelLayersb);
+
+    map.addControl(panelLayersa);
+
+    map.addControl(panelLayersc);
 
 </script>
 
