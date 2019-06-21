@@ -11,6 +11,8 @@ Tested in Leaflet 0.7.x, 1.4.x
 
 **Demo:**
 
+[DEMO with some of the new features](https://portaldev.lorrnel.com/leaflet-panel-layers/examples/glyphicons.html)
+
 [labs.easyblog.it/maps/leaflet-panel-layers](http://labs.easyblog.it/maps/leaflet-panel-layers/)
 
 **Source code:**  
