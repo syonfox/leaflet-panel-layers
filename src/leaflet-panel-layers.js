@@ -349,7 +349,7 @@
 				input.value = "group";
 				input.name = groupdata.name;
 
-				L.DomEvent.on(input, 'click', function () {
+				L.DomEvent.on(input, 'click', function (e) {
 					self._onGroupClick(e.target);
 				}, this);
 			}
