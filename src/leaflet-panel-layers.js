@@ -205,9 +205,7 @@
 			}, this);
 
 			var label = L.DomUtil.create('label', this.className + '-title');
-			//TODO label.htmlFor = input.id;
-			var title = L.DomUtil.create('span');
-			title.innerHTML = obj.name+"" || '';
+
 
 			if (obj.icon) {
 				var icon = L.DomUtil.create('i', this.className + '-icon');
@@ -221,8 +219,34 @@
 			}
 
 			label.appendChild(input);
-			label.appendChild(title);
-			item.appendChild(label);
+
+            //TODO label.htmlFor = input.id;
+            var title = L.DomUtil.create('span');
+            title.innerHTML = obj.name+"" || '';
+
+            if(obj.tooltip && obj.tooltip != "") {
+                var tooltip = L.DomUtil.create('div', this.className + '-tooltip');
+                tooltip.innerHTML =  obj.name+"" || '';
+                var tooltiptext = L.DomUtil.create('span', this.className + '-tooltiptext');
+                tooltiptext.innerHTML = obj.tooltip+"";
+
+                tooltip.appendChild(tooltiptext);
+                item.appendChild(label);
+                item.appendChild(tooltip);
+
+
+            } else {
+                label.appendChild(title);
+                item.appendChild(label);
+
+            }
+
+
+			// item.appendChild(label);
+
+
+
+
 
 			if (this.options.buildItem) {
 				var node = this.options.buildItem.call(this, obj); //custom node node or html string
@@ -279,6 +303,8 @@
 			label = this._createItem(obj);
 
 			list.appendChild(label);
+
+
 
 			return label;
 		},
@@ -440,7 +466,7 @@
 
 			this._refocusOnMap();
 		},
-        
+
 
 		_initLayout: function () {
 			var container = this._container = L.DomUtil.create('div', this.className);

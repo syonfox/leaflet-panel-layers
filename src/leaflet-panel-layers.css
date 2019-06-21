@@ -12,12 +12,14 @@
 	width: 30px;
 	min-width: 30px;
     border-radius: 5px;
+	overflow: visible;
 
 }
 .leaflet-panel-layers.expanded {
 	width: auto;
-	overflow-x: hidden;
-	overflow-y: auto;
+	overflow: visible;
+	/*overflow-x: visible;*/
+	/*overflow-y: auto;*/
 }
 
 /*.hidden:not(.leaflet-panel-layers-title){*/
@@ -34,7 +36,7 @@
 
 .leaflet-panel-layers.colapsed {
 	width: auto;
-	overflow-x: hidden;
+	overflow-x: visible; /**/
 	overflow-y: auto;
 }
 
@@ -44,6 +46,7 @@
 }
 .leaflet-panel-layers:not(.expanded) .leaflet-panel-layers-title > span,
 .leaflet-panel-layers:not(.expanded) .leaflet-panel-layers-selector,
+.leaflet-panel-layers:not(.expanded) .leaflet-panel-layers-tooltip,
 .leaflet-panel-layers:not(.expanded) .leaflet-panel-layers-grouplabel {
 	display: none;
 }
@@ -66,7 +69,7 @@
 	width: auto;
 	height: auto;
 	clear: both;
-	overflow: hidden;
+	overflow: visible;
 }
 .leaflet-panel-layers-icon {
 	text-align: center;
@@ -76,6 +79,7 @@
 
 .leaflet-panel-layers-group.collapsible:not(.expanded) {
 	height: 20px;
+
 }
 .leaflet-panel-layers-group.collapsible:not(.expanded) .leaflet-panel-layers-grouplabel {
 	height: 20px;
@@ -109,7 +113,7 @@
 .leaflet-panel-layers-overlays .leaflet-panel-layers-item {
 	white-space: pre-wrap;
 	white-space: -moz-pre-wrap;
-	white-space: -pre-wrap;
+	white-space: pre-wrap;
 	white-space: -o-pre-wrap;
 	word-wrap: break-word;
 	width: auto;
@@ -151,6 +155,7 @@
 }
 .leaflet-panel-layers-item {
 	min-height: 20px;
+	display: flex; /*makes tooltips on siame line*/
 }
 .leaflet-panel-layers-margin {
 	height: 25px;
@@ -162,6 +167,7 @@
 	width: 20px;
 	background: #fff;
 }
+
 
 .leaflet-panel-layers.collapsible .leaflet-panel-layers-icon:first-child,
 .leaflet-panel-layers-group.collapsible .leaflet-panel-layers-icon:first-child {
@@ -183,8 +189,62 @@
 	background: #fff;
 	border: 1px solid rgba(0,0,0,0.3);
 	border-radius: 4px;
+
+	display: flex; /*makes tooltips on siame line*/
+
 }
 .leaflet-panel-layers-overlays .leaflet-panel-layers-item:hover {
 	border: 1px solid #888;
 	cursor: pointer;
+}
+
+/* Tooltip container */
+.leaflet-panel-layers-tooltip {
+	position: relative;
+	display: inline-block;
+	border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.leaflet-panel-layers-tooltip .leaflet-panel-layers-tooltiptext {
+	visibility: hidden;
+	width: 120px;
+	background-color: #555;
+	color: #fff;
+	text-align: center;
+	padding: 5px 0;
+	border-radius: 6px;
+
+	opacity: 0;
+	transition: opacity 0.3s;
+
+
+	/* Position the tooltip text - see examples below! */
+	position: absolute;
+
+	width: 120px;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+
+}
+
+.leaflet-panel-layers-tooltip .leaflet-panel-layers-tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.leaflet-panel-layers-tooltip:hover .leaflet-panel-layers-tooltiptext {
+	visibility: visible;
+	opacity: 0.9;
+	transition-delay:0.5s;
+	/*overflow: visible;*/
+
 }
