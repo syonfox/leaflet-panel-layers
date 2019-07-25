@@ -26,32 +26,33 @@ Tested in Leaflet 0.7.x, 1.4.x
 ![Image](https://raw.githubusercontent.com/stefanocudini/leaflet-panel-layers/master/examples/images/screenshot/leaflet-panel-layers-layout.jpg)
 
 # Options
-| Option	  | Default  | Description                       |
-| --------------- | -------- | ----------------------------------------- |
-| compact	  | false    | panel height minor of map height |
-| compactOffset | 0 | the distance from the bottom of the map that the panal will not expand into | 
-| collapsed       | false    | panel collapsed at startup |
-| autoZIndex 	  | true     | set zindex layer by order definition |
-| collapsibleGroups| false   | groups of layers is collapsible by button |
-| groupCheckboxes| true | check box to select and deselect all items in a group|
-| buildItem	  | null     | function that return row item html node(or html string) |
-| title	          | ''       | title of panel |
-| className	  | ''       | additional class name for panel |
-| position	  | 'topright' | position of control |
+| Option	        | Default   | Description                       |
+| ------------------| ----------| ----------------------------------------- |
+| compact	        | false     | panel height minor of map height |
+| compactOffset     | 0         | the distance from the bottom of the map that the panal will not expand into | 
+| collapsed         | false     | panel collapsed at startup |
+| autoZIndex 	    | true      | set zindex layer by order definition |
+| collapsibleGroups | false     | groups of layers is collapsible by button |
+| groupCheckboxes   | true      | check box to select and deselect all items in a group|
+| buildItem	        | null      | function that return row item html node(or html string) |
+| title	            | ''        | title of panel |
+| className	        | ''        | additional class name for panel |
+| position	        | 'topright'| position of control |
+| tooltip           | ''        | Setes the string that will be showen in a tooltip for the layer when you hover over the name|
 
 # Events
-| Event			 | Data			  | Description                               |
+| Event			         | Data			          | Description                               |
 | ---------------------- | ---------------------- | ----------------------------------------- |
 | 'panel:selected'       | {layerDef}             | fired after moved and show markerLocation |
 | 'panel:unselected'	 | {}	                  | fired after control was expanded          |
 
 # Methods
-| Method		 | Arguments		 | Description                                              |
+| Method		         | Arguments		     | Description                                              |
 | ---------------------- | --------------------- | -------------------------------------------------------- |
-| addBaseLayer()         | layerDef,group,collapsed       	 | add new layer item definition to panel as baselayers     |
-| addOverlay()           | 'Text message' 	 | add new layer item definition to panel as overlay        |
-| removeLayer()		 | 'Text searched'	 | remove layer item from panel                             |
-| configToControlLayers()| 'Text searched'	 | convert config from Control.PanelLayers to Control.Layers|
+| addBaseLayer()         | layerDef,group,collapsed | add new layer item definition to panel as baselayers     |
+| addOverlay()           | 'Text message' 	     | add new layer item definition to panel as overlay        |
+| removeLayer()		     | 'Text searched'	     | remove layer item from panel                             |
+| configToControlLayers()| 'Text searched'	     | convert config from Control.PanelLayers to Control.Layers|
 
 # Usage
 
