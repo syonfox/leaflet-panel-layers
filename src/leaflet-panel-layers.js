@@ -225,17 +225,138 @@
             title.innerHTML = obj.name+"" || '';
 
             if(obj.tooltip && obj.tooltip != "") {
-                var tooltip = L.DomUtil.create('div', this.className + '-tooltip');
-                tooltip.innerHTML =  obj.name+"" || '';
-                var tooltiptext = L.DomUtil.create('span', this.className + '-tooltiptext');
-                tooltiptext.innerHTML = obj.tooltip+"";
+				var tooltip = L.DomUtil.create('div', this.className + '-tooltip');
+				tooltip.innerHTML =  obj.name+"" || '';
 
-                tooltip.appendChild(tooltiptext);
-                item.appendChild(label);
-                item.appendChild(tooltip);
+				if(this.options.position == 'topleft' || this.options.position == 'bottomleft') {
+					var tooltiptext = L.DomUtil.create('span', 'right');
+				}else {
+					var tooltiptext = L.DomUtil.create('span', 'left');
+				}
+
+				var i = L.DomUtil.create('i', null);
+
+				tooltiptext.innerHTML = obj.tooltip+"";//<i></i>
+				tooltiptext.appendChild(i);
+
+				if( obj.tooltip.length < 100) {
+					//alert(obj.tooltip+"   :   "+ tooltiptext.getBoundingClientRect().top);
+
+					tooltiptext.style.transform = "translate(0,-50%)";
+					i.style.top = "50%";
+
+				}
+
+				// tooltip.addEventListener("mouseover", tooltipMouseover(), false);
+
+				L.DomEvent.on(tooltip, "mouseover", tooltipMouseover, false);
+
+				function tooltipMouseover(e) {
+
+					console.log(e);
+					var boundingRect = e.target.getBoundingClientRect();
 
 
-            } else {
+					var parent = e.target.parentNode;
+					while(parent.classList[0] != "leaflet-container") {
+						parent = parent.parentNode;
+					}
+					var lboundingRect = parent.getBoundingClientRect();
+					console.log( " height: "+  boundingRect.top +"\nLheight: "+ lboundingRect.top);
+					console.log(boundingRect);
+					console.log(lboundingRect);
+					var ttt = e.target;
+					var tip = ttt.lastChild;
+					var i = tip.lastChild;
+
+					console.log(ttt);
+					console.log(tip);
+					console.log(i);
+
+					if(ttt == null || i == null) {
+						console.log("wrongdiv")
+						return;
+
+					}
+
+
+
+					if(tip != null && (tip.className == 'left' || tip.className == 'right')) {
+						var isleft = tip.className == 'left';
+					} else {
+						console.log("wrong tip div")
+						return;
+					}
+
+					//Calculate mac height
+					var maxheight = lboundingRect.height * 0.9;
+					if(lboundingRect.top < 0) {
+						maxheight += lboundingRect.top;
+					}
+
+					console.log("maxheight: " + maxheight);
+
+					console.log("text height: " + tip.offsetHeight)
+
+					var width = 200;
+					tip.style.minWidth = width+"px";
+					if(isleft) {
+						while (tip.offsetHeight >= maxheight && width < boundingRect.left - 100) {
+							width += 10;
+						}
+					}else {
+						var maxwidth = (lboundingRect.width - boundingRect.right - 100);
+						while (tip.offsetHeight >= maxheight && width < maxwidth) {
+							width += 10;
+						}
+					}
+					tip.style.minWidth = width+"px";
+
+					if(tip.offsetHeight >= maxheight) {
+						tip.style.overflowX = "hidden";
+						tip.style.overflowY = "auto";
+					}
+					else {
+						tip.style.overflowX = "unset";
+						tip.style.overflowY = "unset";
+					}
+
+					tip.style.maxHeight = maxheight + "px";
+
+
+
+
+					var item = boundingRect.top - lboundingRect.top;
+					if((maxheight/2) < item  && (maxheight/2)  < (lboundingRect.height - item)) {
+						console.log("item"+(boundingRect.top));
+						console.log("mh/2 "+maxheight/2);
+						console.log("bellow "+(lboundingRect.height - item));
+
+						tip.style.transform = "translate(0,-"+50+"%)";
+						i.style.top = 50+"%";
+					 	console.log("50%%")
+					} else {
+						var p = 100 * item / lboundingRect.height;
+						console.log(p);
+
+						tip.style.transform = "translate(0,-"+p+"%)";
+						i.style.top = p+"%";
+					}
+
+
+
+				}
+
+
+
+
+				tooltip.appendChild(tooltiptext);
+				item.appendChild(label);
+				item.appendChild(tooltip);
+
+				//var tooltip = new Opentip(title, obj.tooltip+"", {containInViewport: false  });
+				// L.tooltip()containInViewport
+			} else {
                 label.appendChild(title);
                 item.appendChild(label);
 
