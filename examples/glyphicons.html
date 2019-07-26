@@ -75,12 +75,13 @@
             name: "Bar",
             //icon: iconByName('bar'),
             icon: '<i class="glyphicon glyphicon-glass  "></i>',
-            tooltip: 'This is where the bars are',
+            tooltip: 'The Municipal District dataset is comprised of all the polygons that represent Municipal Districts in Alberta. Municipal District is a municipality type defined under the authority of the Municipal Government Act. The formation of a Municipal District occur when a majority of the buildings used as dwellings are on parcels of land with an area of at least 1850 square meters and there is a population of 1000 or more. A municipal district is a government form in rural areas of the province.  The Municipal District dataset is comprised of all the polygons that represent Municipal Districts in Alberta. Municipal District is a municipality type defined under the authority of the Municipal Government Act. The formation of a Municipal District occur when a majority of the buildings used as dwellings are on parcels of land with an area of at least 1850 square meters and there is a population of 1000 or more. A municipal district is a government form in rural areas of the province.',
             layer: L.geoJson(Bar, {pointToLayer: featureToMarker })
         },
         {
             name: "Drinking Water",
             icon: glyphiconByName('tint'),
+            tooltip:"small tool tip",
             layer: L.geoJson(Drinking_water, {pointToLayer: featureToMarker })
         },
         {
@@ -91,14 +92,14 @@
                 {
                     name: "Fuel",
                     icon: iconByName('fuel'),
-                    tooltip: "This is where you can park in super fancy parking spots surounded by trees. wowo is so nice and big here there is losts of text",
+                    tooltip: "This is where you can park in super fancy parking spots surounded by trees. wowo is so nice and big here there is losts of text The Municipal District dataset is comprised of all the polygons that represent Municipal Districts in Alberta. Municipal District is a municipality type defined under the authority of the Municipal Government Act. The formation of a Municipal District occur when a majority of the buildings used as dwellings are on parcels of land with an area of at least 1850 square meters and there is a population of 1000 or more. A municipal district is a government form in rural areas of the province.  The Municipal District dataset is comprised of all the polygons that represent Municipal Districts in Alberta. Municipal District is a municipality type defined under the authority of the Municipal Government Act. The formation of a Municipal District occur when a majority of the buildings used as dwellings are on parcels of land with an area of at least 1850 square meters and there is a population of 1000 or more. A municipal district is a government form in rural areas of the province.The Municipal District dataset is comprised of all the polygons that represent Municipal Districts in Alberta. Municipal District is a municipality type defined under the authority of the Municipal Government Act. The formation of a Municipal District occur when a majority of the buildings used as dwellings are on parcels of land with an area of at least 1850 square meters and there is a population of 1000 or more. A municipal district is a government form in rural areas of the province.  The Municipal District dataset is comprised of all the polygons that represent Municipal Districts in Alberta. Municipal District is a municipality type defined under the authority of the Municipal Government Act. The formation of a Municipal District occur when a majority of the buildings used as dwellings are on parcels of land with an area of at least 1850 square meters and there is a population of 1000 or more. A municipal district is a government form in rural areas of the province.The Municipal District dataset is comprised of all the polygons that represent Municipal Districts in Alberta. Municipal District is a municipality type defined under the authority of the Municipal Government Act. The formation of a Municipal District occur when a majority of the buildings used as dwellings are on parcels of land with an area of at least 1850 square meters and there is a population of 1000 or more. A municipal district is a government form in rural areas of the province.  The Municipal District dataset is comprised of all the polygons that represent Municipal Districts in Alberta. Municipal District is a municipality type defined under the authority of the Municipal Government Act. The formation of a Municipal District occur when a majority of the buildings used as dwellings are on parcels of land with an area of at least 1850 square meters and there is a population of 1000 or more. A municipal district is a government form in rural areas of the province.The Municipal District dataset is comprised of all the polygons that represent Municipal Districts in Alberta. Municipal District is a municipality type defined under the authority of the Municipal Government Act. The formation of a Municipal District occur when a majority of the buildings used as dwellings are on parcels of land with an area of at least 1850 square meters and there is a population of 1000 or more. A municipal district is a government form in rural areas of the province.  The Municipal District dataset is comprised of all the polygons that represent Municipal Districts in Alberta. Municipal District is a municipality type defined under the authority of the Municipal Government Act. The formation of a Municipal District occur when a majority of the buildings used as dwellings are on parcels of land with an area of at least 1850 square meters and there is a population of 1000 or more. A municipal district is a government form in rural areas of the province.The Municipal District dataset is comprised of all the polygons that represent Municipal Districts in Alberta. Municipal District is a municipality type defined under the authority of the Municipal Government Act. The formation of a Municipal District occur when a majority of the buildings used as dwellings are on parcels of land with an area of at least 1850 square meters and there is a population of 1000 or more. A municipal district is a government form in rural areas of the province.  The Municipal District dataset is comprised of all the polygons that represent Municipal Districts in Alberta. Municipal District is a municipality type defined under the authority of the Municipal Government Act. The formation of a Municipal District occur when a majority of the buildings used as dwellings are on parcels of land with an area of at least 1850 square meters and there is a population of 1000 or more. A municipal district is a government form in rural areas of the province.The Municipal District dataset is comprised of all the polygons that represent Municipal Districts in Alberta. Municipal District is a municipality type defined under the authority of the Municipal Government Act. The formation of a Municipal District occur when a majority of the buildings used as dwellings are on parcels of land with an area of at least 1850 square meters and there is a population of 1000 or more. A municipal district is a government form in rural areas of the province.  The Municipal District dataset is comprised of all the polygons that represent Municipal Districts in Alberta. Municipal District is a municipality type defined under the authority of the Municipal Government Act. The formation of a Municipal District occur when a majority of the buildings used as dwellings are on parcels of land with an area of at least 1850 square meters and there is a population of 1000 or more. A municipal district is a government form in rural areas of the province.",
 
                     layer: L.geoJson(Fuel, {pointToLayer: featureToMarker })
                 },
                 {
                     name: "Parking",
                     icon: iconByName('parking'),
-                    tooltip: "The Municipal District dataset is comprised of all the polygons that represent Municipal Districts in Alberta. Municipal District is a municipality type defined under the authority of the Municipal Government Act. The formation of a Municipal District occur when a majority of the buildings used as dwellings are on parcels of land with an area of at least 1850 square meters and there is a population of 1000 or more. A municipal district is a government form in rural areas of the province.",
+                    tooltip: 'The Municipal District dataset is comprised of all the polygons that represent Municipal Districts in Alberta. Municipal District is a municipality type defined under the authority of the Municipal Government Act. The formation of a Municipal District occur when a majority of the buildings used as dwellings are on parcels of land with an area of at least 1850 square meters and there is a population of 1000 or more. A municipal district is a government form in rural areas of the province.',
                     layer: L.geoJson(Parking, {pointToLayer: featureToMarker })
                 }
             ]
@@ -155,11 +156,50 @@
 
     });
 
+    var panelLayersc = new L.Control.PanelLayers(null, overLayers, {
+        collapsibleGroups: true,
+        compact: true,
+        collapsed: true,
+        // title: "MY PANAL"
+        title: 'Overlay C',
+        position: 'bottomright',
+        iconPlus: glyphiconByName('chevron-up')
+
+    });
+
+
+    var panelLayersd = new L.Control.PanelLayers(null, overLayers, {
+        collapsibleGroups: true,
+        compact: true,
+        collapsed: false,
+        // title: "MY PANAL"
+        title: 'Overlay d',
+         position: 'topleft',
+        iconPlus: glyphiconByName('chevron-up')
+
+    });
+
+    var panelLayerse = new L.Control.PanelLayers(null, overLayers, {
+        collapsibleGroups: true,
+        compact: true,
+        collapsed: true,
+        // title: "MY PANAL"
+        title: 'Overlay e',
+        position: 'bottomleft',
+        iconPlus: glyphiconByName('chevron-up')
+
+    });
+
     map.addControl(panelLayersb);
 
     map.addControl(panelLayersa);
 
     map.addControl(panelLayersc);
+
+    map.addControl(panelLayersd);
+
+    map.addControl(panelLayerse);
+
 
 </script>
 

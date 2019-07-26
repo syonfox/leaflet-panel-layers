@@ -327,7 +327,7 @@
 
 
 					var item = boundingRect.top - lboundingRect.top;
-					if((maxheight/2) < item  && (maxheight/2)  < (lboundingRect.height - item)) {
+					if((tip.offsetHeight/2) < item  && (tip.offsetHeight/2)  < (lboundingRect.height - item)) {
 						console.log("item"+(boundingRect.top));
 						console.log("mh/2 "+maxheight/2);
 						console.log("bellow "+(lboundingRect.height - item));
