@@ -1,5 +1,5 @@
 Leaflet Panel Layers
-==============
+====================
 
 [![npm version](https://badge.fury.io/js/leaflet-panel-layers.svg)](http://badge.fury.io/js/leaflet-panel-layers)
 
