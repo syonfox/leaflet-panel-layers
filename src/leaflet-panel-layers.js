@@ -253,40 +253,45 @@
 
 				function tooltipMouseover(e) {
 
-					console.log(e);
+					// console.log(e);
 					var boundingRect = e.target.getBoundingClientRect();
 
 
 					var parent = e.target.parentNode;
-					while(parent.classList[0] != "leaflet-container") {
+					while(parent.classList && parent.classList[0] != "leaflet-container") {
 						parent = parent.parentNode;
 					}
 					var lboundingRect = parent.getBoundingClientRect();
-					console.log( " height: "+  boundingRect.top +"\nLheight: "+ lboundingRect.top);
-					console.log(boundingRect);
-					console.log(lboundingRect);
+					// console.log( " height: "+  boundingRect.top +"\nLheight: "+ lboundingRect.top);
+					// console.log(boundingRect);
+					// console.log(lboundingRect);
 					var ttt = e.target;
-					var tip = ttt.lastChild;
-					var i = tip.lastChild;
-
-					console.log(ttt);
-					console.log(tip);
-					console.log(i);
-
-					if(ttt == null || i == null) {
-						console.log("wrongdiv")
+					if(ttt == null) {
+						// console.log("wrongdiv")
 						return;
-
 					}
 
-
+					var tip = ttt.lastChild;
 
 					if(tip != null && (tip.className == 'left' || tip.className == 'right')) {
 						var isleft = tip.className == 'left';
 					} else {
-						console.log("wrong tip div")
+						// console.log("wrong tip div")
 						return;
 					}
+
+					var i = tip.lastChild;
+					if(i == null) {
+						// console.log("wrongdiv")
+						return;
+					}
+
+
+
+					// console.log(ttt);
+					// console.log(tip);
+					// console.log(i);
+
 
 					//Calculate mac height
 					var maxheight = lboundingRect.height * 0.9;
@@ -294,9 +299,9 @@
 						maxheight += lboundingRect.top;
 					}
 
-					console.log("maxheight: " + maxheight);
-
-					console.log("text height: " + tip.offsetHeight)
+					// console.log("maxheight: " + maxheight);
+					//
+					// console.log("text height: " + tip.offsetHeight)
 
 					var width = 200;
 					tip.style.minWidth = width+"px";
@@ -328,16 +333,16 @@
 
 					var item = boundingRect.top - lboundingRect.top;
 					if((tip.offsetHeight/2) < item  && (tip.offsetHeight/2)  < (lboundingRect.height - item)) {
-						console.log("item"+(boundingRect.top));
-						console.log("mh/2 "+maxheight/2);
-						console.log("bellow "+(lboundingRect.height - item));
+						// console.log("item"+(boundingRect.top));
+						// console.log("mh/2 "+maxheight/2);
+						// console.log("bellow "+(lboundingRect.height - item));
 
 						tip.style.transform = "translate(0,-"+50+"%)";
 						i.style.top = 50+"%";
-					 	console.log("50%%")
+					 	// console.log("50%%")
 					} else {
 						var p = 100 * item / lboundingRect.height;
-						console.log(p);
+						// console.log(p);
 
 						tip.style.transform = "translate(0,-"+p+"%)";
 						i.style.top = p+"%";
