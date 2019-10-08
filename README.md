@@ -239,6 +239,12 @@ $.getJSON('some/url/path.geojson', function(data){
 	});
 });
 ```
+the interface is:
+```javascript
+panel.addOverlay(layer, name, group, colapsed);
+``` 
+If you want the group you are adding to to be colapsed after adding the layer then colapsed must be 'true'
+the deafult is for it to expand the group.
 
 **Using bootstrap glyphicons**
 
