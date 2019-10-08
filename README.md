@@ -53,7 +53,8 @@ Tested in Leaflet 0.7.x, 1.4.x
 | addOverlay()           | 'Text message' 	     | add new layer item definition to panel as overlay        |
 | removeLayer()		     | 'Text searched'	     | remove layer item from panel                             |
 | configToControlLayers()| 'Text searched'	     | convert config from Control.PanelLayers to Control.Layers|
-
+| expandGroup()          | group                 | expand a group in a panel |
+| collapseGroup()        | group                 | collapse a group in a panel | 
 # Usage
 
 **Panel Item Definition formats**

@@ -247,8 +247,6 @@
 
 				}
 
-				// tooltip.addEventListener("mouseover", tooltipMouseover(), false);
-
 				L.DomEvent.on(tooltip, "mouseover", tooltipMouseover, false);
 
 				function tooltipMouseover(e) {
@@ -262,9 +260,6 @@
 						parent = parent.parentNode;
 					}
 					var lboundingRect = parent.getBoundingClientRect();
-					// console.log( " height: "+  boundingRect.top +"\nLheight: "+ lboundingRect.top);
-					// console.log(boundingRect);
-					// console.log(lboundingRect);
 					var ttt = e.target;
 					if(ttt == null) {
 						// console.log("wrongdiv")
@@ -285,23 +280,11 @@
 						// console.log("wrongdiv")
 						return;
 					}
-
-
-
-					// console.log(ttt);
-					// console.log(tip);
-					// console.log(i);
-
-
 					//Calculate mac height
 					var maxheight = lboundingRect.height * 0.9;
 					if(lboundingRect.top < 0) {
 						maxheight += lboundingRect.top;
 					}
-
-					// console.log("maxheight: " + maxheight);
-					//
-					// console.log("text height: " + tip.offsetHeight)
 
 					var width = 200;
 					tip.style.minWidth = width+"px";
@@ -328,9 +311,6 @@
 
 					tip.style.maxHeight = maxheight + "px";
 
-
-
-
 					var item = boundingRect.top - lboundingRect.top;
 					if((tip.offsetHeight/2) < item  && (tip.offsetHeight/2)  < (lboundingRect.height - item)) {
 						// console.log("item"+(boundingRect.top));
@@ -347,32 +327,16 @@
 						tip.style.transform = "translate(0,-"+p+"%)";
 						i.style.top = p+"%";
 					}
-
-
-
 				}
-
-
-
 
 				tooltip.appendChild(tooltiptext);
 				item.appendChild(label);
 				item.appendChild(tooltip);
-
-				//var tooltip = new Opentip(title, obj.tooltip+"", {containInViewport: false  });
-				// L.tooltip()containInViewport
 			} else {
                 label.appendChild(title);
                 item.appendChild(label);
 
             }
-
-
-			// item.appendChild(label);
-
-
-
-
 
 			if (this.options.buildItem) {
 				var node = this.options.buildItem.call(this, obj); //custom node node or html string
@@ -494,6 +458,29 @@
 
 			return groupdiv;
 		},
+
+		expandGroup(grop_name) {
+			let groupdiv = this._groups[grop_name];
+			let groupexp = groupdiv.firstChild;
+			if (!L.DomUtil.hasClass(groupdiv, 'expanded')) {
+				L.DomUtil.addClass(groupdiv, 'expanded');
+				groupexp.innerHTML = ' - ';
+
+				self._updateHeight();
+			}
+
+		},
+		collapseGroup(grop_name) {
+			let groupdiv = this._groups[grop_name];
+			let groupexp = groupdiv.firstChild;
+			if (L.DomUtil.hasClass(groupdiv, 'expanded')) {
+				L.DomUtil.removeClass(groupdiv, 'expanded');
+				groupexp.innerHTML = ' + ';
+
+				self._updateHeight();
+			}
+		},
+
 
 		_onGroupClick: function(group) {
 
@@ -725,11 +712,8 @@
 				return obj[last];
 		}
 	});
-
 	L.control.panelLayers = function (baseLayers, overlays, options) {
 		return new L.Control.PanelLayers(baseLayers, overlays, options);
 	};
-
 	return L.Control.PanelLayers;
-
 });
