@@ -88,16 +88,16 @@
 		//TODO addBaseLayerGroup
 		//TODO addOverlayGroup
 
-		addBaseLayer: function (layer, name, group) {
+		addBaseLayer: function (layer, name, group, collapsed) {
 			layer.name = name || layer.name || '';
-			this._addLayer(layer, false, group);
+			this._addLayer(layer, false, group, collapsed);
 			this._update();
 			return this;
 		},
 
-		addOverlay: function (layer, name, group) {
+		addOverlay: function (layer, name, group, collapsed) {
 			layer.name = name || layer.name || '';
-			this._addLayer(layer, true, group);
+			this._addLayer(layer, true, group, collapsed);
 			this._update();
 			return this;
 		},
