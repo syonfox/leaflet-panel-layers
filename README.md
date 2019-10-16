@@ -33,6 +33,7 @@ Tested in Leaflet 0.7.x, 1.4.x
 | collapsed         | false     | panel collapsed at startup |
 | autoZIndex 	    | true      | set zindex layer by order definition |
 | collapsibleGroups | false     | groups of layers is collapsible by button |
+| collapsiblePanel  | true      | panel can be of collapsed by button |
 | groupCheckboxes   | true      | check box to select and deselect all items in a group|
 | buildItem	        | null      | function that return row item html node(or html string) |
 | title	            | ''        | title of panel |

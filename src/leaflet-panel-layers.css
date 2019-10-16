@@ -277,6 +277,14 @@
 	text-align:left;
 }
 
+.leaflet-panel-layers-info{
+	display:inline-block;
+	position:relative;
+	border-bottom:1px dotted #666;
+	text-align:left;
+	background: lightcoral;
+}
+
 .leaflet-panel-layers-tooltip .left {
 	min-width:200px;
 	/*max-height: ;*/

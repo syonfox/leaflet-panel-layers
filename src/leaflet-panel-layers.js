@@ -23,7 +23,7 @@
 			collapsed: false,
 			autoZIndex: true,
 			collapsibleGroups: false,
-			collapsiblePanal: true,
+			collapsiblePanel: true,
 			panalColapsed: false,
 			groupCheckboxes: true,
 			buildItem: null,				//function that return row item html node(or html string)
@@ -629,7 +629,7 @@
 
 
 
-			if (this.options.collapsiblePanal) {
+			if (this.options.collapsiblePanel) {
 				self = this;
 
 				L.DomUtil.addClass(container, 'collapsible');
