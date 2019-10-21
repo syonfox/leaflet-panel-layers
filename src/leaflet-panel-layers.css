@@ -4,6 +4,7 @@
 }
 .leaflet-panel-layers.expanded .leaflet-panel-layers-list {
 	display: block;
+	overflow: auto;
 }
 .leaflet-top.leaflet-right .leaflet-panel-layers:not(.compact) {
 	margin: 0;
@@ -18,6 +19,7 @@
 .leaflet-panel-layers.expanded {
 	width: auto;
 	overflow: visible;
+	display: grid;
 	/*overflow-x: visible;*/
 	/*overflow-y: auto;*/
 }
@@ -60,6 +62,13 @@
 	float: none;
 	cursor: pointer;
 }
+.leaflet-panel-layers-group .leaflet-panel-layers-title {
+	display: block;
+	white-space: nowrap;
+	float: none;
+	cursor: pointer;
+}
+
 .leaflet-panel-layers-title .leaflet-panel-layers-selector {
 	float: right;
 }
@@ -118,7 +127,15 @@
 	word-wrap: break-word;
 	width: auto;
 	display: block;
+	overflow: auto;
+	margin-bottom: 4px;
+	padding: 2px;
+	background: #fff;
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+
 }
+
 .leaflet-panel-layers-base .leaflet-panel-layers-selector {
 	float: left;
 }
@@ -182,16 +199,6 @@
 	border: 1px solid rgba(0,0,0,0.3);
 	background: rgba(255,255,255,0.6);
 	border-radius: 3px;
-}
-.leaflet-panel-layers-overlays .leaflet-panel-layers-item {
-	margin-bottom: 4px;
-	padding: 2px;
-	background: #fff;
-	border: 1px solid rgba(0,0,0,0.3);
-	border-radius: 4px;
-
-	display: flex; /*makes tooltips on siame line*/
-
 }
 .leaflet-panel-layers-overlays .leaflet-panel-layers-item:hover {
 	border: 1px solid #888;
@@ -284,6 +291,58 @@
 	text-align:left;
 	background: lightcoral;
 }
+.leaflet-panel-layers-item .block {
+	width: -moz-min-content;
+	/*overflow: auto;*/
+
+	/*padding:10px 20px;*/
+	color:#444444;
+	background-color:#EEEEEE;
+	font-weight:normal;
+	font-size:11px;
+	border-radius:5px;
+	position:relative;
+	z-index:99999999;
+	box-sizing:border-box;
+	/*border-width: 2px;*/
+	border-color: lightgray;
+	border-style: solid;
+
+
+	/*box-shadow:0 1px 8px rgba(0,0,0,0.5);*/
+	/*display:none;*/
+	/*position: absolute;*/
+	visibility: hidden;
+	/*height: 0;*/
+	/*height: 0px;*/
+    overflow: auto;
+	opacity:0;
+	max-height: 0px;
+	display: flex;
+
+	background: lightcyan;
+	/*transition: visibility 0s 1s, opacity 1s ease-in-out;*/
+	/*transition: ;*/
+	transition: visibility 2s ,max-height 1s 1s, opacity 1s 0.75s ease-in-out;
+}
+
+
+
+.leaflet-panel-layers-item:hover .block {
+	/*height: available;*/
+	max-height: 250px;
+	padding: 2px 2px;
+	visibility:visible;
+	/*margin: 5px 5px;*/
+	opacity:1;
+	/*overflow: auto;*/
+	/*display: flex;*/
+	/*transition:opacity 1s ease-in-out;*/
+	/*transition: opacity 0.5s ease-in-out;*/
+
+
+}
+
 
 .leaflet-panel-layers-tooltip .left {
 	min-width:200px;
