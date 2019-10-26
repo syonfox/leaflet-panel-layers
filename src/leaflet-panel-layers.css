@@ -303,11 +303,11 @@
 	border-radius:5px;
 	position:relative;
 	z-index:99999999;
-	box-sizing:border-box;
 	/*border-width: 2px;*/
 	border-color: lightgray;
 	border-style: solid;
-
+	border-width: 0px;
+	box-sizing:border-box;
 
 	/*box-shadow:0 1px 8px rgba(0,0,0,0.5);*/
 	/*display:none;*/
@@ -323,16 +323,18 @@
 	background: lightcyan;
 	/*transition: visibility 0s 1s, opacity 1s ease-in-out;*/
 	/*transition: ;*/
-	transition: visibility 2s ,max-height 1s 1s, opacity 1s 0.75s ease-in-out;
+	transition: visibility 1s ,max-height 0.5s 0.5s, opacity 0.5s 0.4s ease-in-out, border-width 0.5s 0.5s, padding 0.5s 0.5s;
 }
 
 
 
 .leaflet-panel-layers-item:hover .block {
+	transition: visibility 2s ,max-height 1s 1s, opacity 1s 0.75s ease-in-out, border-width 1s 1s, padding 1s 1s;
 	/*height: available;*/
 	max-height: 250px;
 	padding: 2px 2px;
 	visibility:visible;
+	border-width: 3px;
 	/*margin: 5px 5px;*/
 	opacity:1;
 	/*overflow: auto;*/

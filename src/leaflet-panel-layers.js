@@ -305,7 +305,7 @@ function getScrollbarWidth() {
                         return;
                     }
 
-                    block.style.width = self._width - scrollWidth  + "px";
+                    block.style.width = self._width - scrollWidth*2  + "px";
 
 
                     // console.log(item)
