@@ -59,6 +59,7 @@
 .leaflet-panel-layers-item .leaflet-panel-layers-title {
 	display: block;
 	white-space: nowrap;
+    margin-bottom: 0px;
 	float: none;
 	cursor: pointer;
 }
@@ -66,6 +67,8 @@
 	display: block;
 	white-space: nowrap;
 	float: none;
+    margin-bottom: 0px;
+
 	cursor: pointer;
 }
 
@@ -87,7 +90,7 @@
 }
 
 .leaflet-panel-layers-group.collapsible:not(.expanded) {
-	height: 20px;
+	height: 24px;
 
 }
 .leaflet-panel-layers-group.collapsible:not(.expanded) .leaflet-panel-layers-grouplabel {
@@ -128,7 +131,7 @@
 	width: auto;
 	display: block;
 	overflow: auto;
-	margin-bottom: 4px;
+	/*margin-bottom: 4px;*/
 	padding: 2px;
 	background: #fff;
 	border: 1px solid rgba(0,0,0,0.3);
@@ -137,15 +140,20 @@
 }
 
 .leaflet-panel-layers-base .leaflet-panel-layers-selector {
+        margin: 0px;
+
 	float: left;
 }
 .leaflet-panel-layers-overlays .leaflet-panel-layers-selector {
+        margin: 0px;
+
 	float: left;
 }
 .leaflet-panel-layers.expanded .leaflet-panel-layers-overlays input {
 	display: block;
 }
 .leaflet-control-layers-selector {
+    margin: 0px;
 	float: left;
 }
 
@@ -163,7 +171,7 @@
 .leaflet-panel-layers-selector {
 	position: relative;
 	top: 1px;
-	margin-top: 2px;
+	/*margin-top: 2px;*/
 }
 .leaflet-panel-layers-separator {
 	height: 8px;
