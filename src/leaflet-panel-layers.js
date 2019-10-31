@@ -1,25 +1,21 @@
-function hasScrollbar(d) {
+function hasScrollbar(d) {//cheacks if a div has a scrolllbar
     return d.scrollHeight > d.clientHeight;
 }
 
-function getScrollbarWidth() {
+function getScrollbarWidth() {//gets the boewsers scrollbar width
     // Creating invisible container
     const outer = document.createElement('div');
     outer.style.visibility = 'hidden';
     outer.style.overflow = 'scroll'; // forcing scrollbar to appear
     outer.style.msOverflowStyle = 'scrollbar'; // needed for WinJS apps
     document.body.appendChild(outer);
-
     // Creating inner element and placing it in the container
     const inner = document.createElement('div');
     outer.appendChild(inner);
-
     // Calculating difference between container's full width and the child width
     const scrollbarWidth = (outer.offsetWidth - inner.offsetWidth);
-
     // Removing temporary elements from the DOM
     outer.parentNode.removeChild(outer);
-
     return scrollbarWidth;
 }
 
@@ -197,7 +193,6 @@ function getScrollbarWidth() {
         _createItem: function (obj) {
 
             var self = this;
-
             var item, input, checked;
 
             item = L.DomUtil.create('div', this.className + '-item' + (obj.active ? ' active' : ''));
@@ -253,28 +248,11 @@ function getScrollbarWidth() {
                 var tooltip = L.DomUtil.create('div', this.className + '-tooltip');
                 tooltip.innerHTML = obj.name + "" || '';
 
-                // if(this.options.position == 'topleft' || this.options.position == 'bottomleft') {
-                // 	var tooltiptext = L.DomUtil.create('span', 'right');
-                // }else {
-                // 	var tooltiptext = L.DomUtil.create('span', 'left');
-                // }
                 var tooltiptext = L.DomUtil.create('span', 'block');
 
-                // var i = L.DomUtil.create('i', null);
+                tooltiptext.innerHTML = obj.tooltip + "";
 
-                tooltiptext.innerHTML = obj.tooltip + "";//<i></i>
-                // tooltiptext.appendChild(i);
 
-                // if( obj.tooltip.length < 100) {
-                // 	//alert(obj.tooltip+"   :   "+ tooltiptext.getBoundingClientRect().top);
-                //
-                // 	tooltiptext.style.transform = "translate(0,-50%)";
-                // 	i.style.top = "50%";
-                //
-                // }
-                var self = this;
-
-                L.DomEvent.on(item, "mouseleave", tooltipMouseleave, false);
 
                 let scrollWidth = getScrollbarWidth();
 
@@ -282,17 +260,10 @@ function getScrollbarWidth() {
 					self._updateHeight();
 				}
 
-                function tooltipMouseleave(e) {
-                    // self._updateHeight();
-                }
-
 
                 L.DomEvent.on(item, "mouseenter", tooltipMouseover, false);
 
                 function tooltipMouseover(e) {
-
-                    // console.log(this);
-                    // console.log(self);
                     self._updateHeight();
                     let item = e.target;
                     while (item != null && item.className != "leaflet-panel-layers-item") {
@@ -304,98 +275,15 @@ function getScrollbarWidth() {
                         console.error("WARRNING: Item = null or block = null");
                         return;
                     }
-
                     block.style.width = self._width - scrollWidth*2  + "px";
-
-
-                    // console.log(item)
-                    // console.log(block)
-                    // // console.log(e);
-                    // var boundingRect = e.target.getBoundingClientRect();
-                    //
-                    //
-                    // var parent = e.target.parentNode;
-                    // while(parent.classList && parent.classList[0] != "leaflet-container") {
-                    // 	parent = parent.parentNode;
-                    // }
-                    // var lboundingRect = parent.getBoundingClientRect();
-                    // var ttt = e.target;
-                    // if(ttt == null) {
-                    // 	// console.log("wrongdiv")
-                    // 	return;
-                    // }
-                    //
-                    // var tip = ttt.lastChild;
-                    //
-                    // if(tip != null && (tip.className == 'left' || tip.className == 'right')) {
-                    // 	var isleft = tip.className == 'left';
-                    // } else {
-                    // 	// console.log("wrong tip div")
-                    // 	return;
-                    // }
-                    //
-                    // var i = tip.lastChild;
-                    // if(i == null) {
-                    // 	// console.log("wrongdiv")
-                    // 	return;
-                    // }
-                    // //Calculate mac height
-                    // var maxheight = lboundingRect.height * 0.9;
-                    // if(lboundingRect.top < 0) {
-                    // 	maxheight += lboundingRect.top;
-                    // }
-                    //
-                    // var width = 200;
-                    // tip.style.minWidth = width+"px";
-                    // if(isleft) {
-                    // 	while (tip.offsetHeight >= maxheight && width < boundingRect.left - 100) {
-                    // 		width += 10;
-                    // 	}
-                    // }else {
-                    // 	var maxwidth = (lboundingRect.width - boundingRect.right - 100);
-                    // 	while (tip.offsetHeight >= maxheight && width < maxwidth) {
-                    // 		width += 10;
-                    // 	}
-                    // }
-                    // tip.style.minWidth = width+"px";
-                    //
-                    // if(tip.offsetHeight >= maxheight) {
-                    // 	tip.style.overflowX = "hidden";
-                    // 	tip.style.overflowY = "auto";
-                    // }
-                    // else {
-                    // 	tip.style.overflowX = "unset";
-                    // 	tip.style.overflowY = "unset";
-                    // }
-                    //
-                    // tip.style.maxHeight = maxheight + "px";
-                    //
-                    // var item = boundingRect.top - lboundingRect.top;
-                    // if((tip.offsetHeight/2) < item  && (tip.offsetHeight/2)  < (lboundingRect.height - item)) {
-                    // 	// console.log("item"+(boundingRect.top));
-                    // 	// console.log("mh/2 "+maxheight/2);
-                    // 	// console.log("bellow "+(lboundingRect.height - item));
-                    //
-                    // 	tip.style.transform = "translate(0,-"+50+"%)";
-                    // 	i.style.top = 50+"%";
-                    //  	// console.log("50%%")
-                    // } else {
-                    // 	var p = 100 * item / lboundingRect.height;
-                    // 	// console.log(p);
-                    //
-                    // 	tip.style.transform = "translate(0,-"+p+"%)";
-                    // 	i.style.top = p+"%";
-                    // }
                 }
 
                 label.appendChild(title);
                 item.appendChild(label);
                 item.appendChild(tooltiptext);
 
-                // item.appendChild(tooltip);
-            } else {
+            } else { //no tool tip
                 label.appendChild(title);
-
                 item.appendChild(label);
 
             }
