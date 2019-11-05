@@ -4,7 +4,7 @@ function hasScrollbar(d) {//cheacks if a div has a scrolllbar
 
 function getScrollbarWidth() {//gets the boewsers scrollbar width
     // Creating invisible container
-    return 24;
+    return 12;
     // const outer = document.createElement('div');
     // outer.style.visibility = 'hidden';
     // outer.style.overflow = 'scroll'; // forcing scrollbar to appear
