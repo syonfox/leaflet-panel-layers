@@ -275,7 +275,8 @@ function getScrollbarWidth() {//gets the boewsers scrollbar width
                         console.error("WARRNING: Item = null or block = null");
                         return;
                     }
-                    block.style.width = self._width - scrollWidth*2  + "px";
+                    let w = self._width - scrollWidth*2;
+                    block.style.width =  w + "px";
                 }
 
                 label.appendChild(title);
