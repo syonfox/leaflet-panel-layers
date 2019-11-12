@@ -301,6 +301,7 @@
 }
 .leaflet-panel-layers-item .block {
 	width: -moz-min-content;
+	width: min-content;
 	/*overflow: auto;*/
 
 	/*padding:10px 20px;*/
