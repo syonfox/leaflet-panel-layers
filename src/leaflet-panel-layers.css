@@ -33,6 +33,10 @@
     display: none;
 }
 
+.leaflet-panel-layers.hidden {
+    display: none;
+}
+
 
 
 

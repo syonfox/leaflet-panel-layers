@@ -133,6 +133,12 @@ function getScrollbarWidth() {//gets the boewsers scrollbar width
             return this;
         },
 
+        hide: function(){
+            this._container.classList.add('hidden');
+        },
+        show: function(){
+            this._container.classList.remove('hidden');
+        },
         clearLayers: function () {
             for (var i = 0; i < this._layers.length; i++) {
                 this.removeLayer(this._layers[i]);
