@@ -113,6 +113,7 @@
 .leaflet-panel-layers-item {
 	display: block;
 	height: auto;
+	min-height: 20px;
 	clear: both;
 	white-space: nowrap;
 	-webkit-touch-callout: none;
@@ -129,7 +130,7 @@
 	white-space: -o-pre-wrap;
 	word-wrap: break-word;
 	width: auto;
-	display: block;
+	/*display: block;*/
 	overflow: auto;
 	/*margin-bottom: 4px;*/
 	padding: 2px;
@@ -178,10 +179,10 @@
 	margin: 12px 4px 0 4px;
 	border-top:1px solid rgba(0,0,0,0.3);
 }
-.leaflet-panel-layers-item {
-	min-height: 20px;
-	display: flex; /*makes tooltips on siame line*/
-}
+/*.leaflet-panel-layers-item {*/
+/*	min-height: 20px;*/
+/*	display: block; !*makes tooltips on siame line*!*/
+/*}*/
 .leaflet-panel-layers-margin {
 	height: 25px;
 }
@@ -212,78 +213,6 @@
 	border: 1px solid #888;
 	cursor: pointer;
 }
-
-/*!* Tooltip container *!*/
-/*.leaflet-panel-layers-tooltip {*/
-/*	position: relative;*/
-/*	display: inline-block;*/
-/*	border-bottom: 1px dotted black; !* If you want dots under the hoverable text *!*/
-/*	text-align: left;*/
-/*}*/
-
-/*!* Tooltip text *!*/
-/*.leaflet-panel-layers-tooltip .leaflet-panel-layers-tooltiptext {*/
-/*	visibility: hidden;*/
-/*	width: 300px;*/
-/*	display: inline-block;*/
-/*	!*overflow: scroll;*!*/
-/*	max-height: none;*/
-/*	z-index: 1;*/
-/*	!*width: auto;*!*/
-/*	background-color: #555;*/
-/*	color: #fff;*/
-/*	text-align: center;*/
-/*	padding: 5px 0;*/
-/*	border-radius: 6px;*/
-
-/*	opacity: 0;*/
-/*	transition: opacity 0.3s;*/
-
-
-/*	!* Position the tooltip text - see examples below! *!*/
-/*	position: absolute;*/
-/*	top: -5px;*/
-/*  	right: 120%;*/
-/*	margin-right: 50px;*/
-/*	!*width: 240px;*!*/
-/*    !*bottom: 100%;*!*/
-/*    !*left: 50%;*!*/
-/*    !*margin-left: -180px; !* Use half of the width (120/2 = 60), to center the tooltip *!*!*/
-
-/*}*/
-
-/*.leaflet-panel-layers-tooltip .leaflet-panel-layers-tooltiptext::after {*/
-/*  !*content: " ";*!*/
-/*  !*position: absolute;*!*/
-/*  !*top: 100%; !* At the bottom of the tooltip *!*!*/
-/*  !*left: 75%;*!*/
-/*  !*margin-left: -5px;*!*/
-/*  !*border-width: 5px;*!*/
-/*  !*border-style: solid;*!*/
-/*  !*border-color: #555 transparent transparent transparent;*!*/
-/*	z-index: 1;*/
-
-/*	content: " ";*/
-/*	position: absolute;*/
-/*	top: 50%;*/
-/*	left: 100%; !* To the right of the tooltip *!*/
-/*	margin-top: -5px;*/
-/*	border-width: 5px;*/
-/*	border-style: solid;*/
-/*	border-color: transparent transparent transparent #555;*/
-/*}*/
-
-/*!* Show the tooltip text when you mouse over the tooltip container *!*/
-/*.leaflet-panel-layers-tooltip:hover .leaflet-panel-layers-tooltiptext {*/
-/*	visibility: visible;*/
-/*	opacity: 0.9;*/
-/*	transition-delay:0.5s;*/
-/*	!*overflow: visible;*!*/
-
-/*}*/
-
-
-
 
 .leaflet-panel-layers-tooltip {
 	display:inline-block;
