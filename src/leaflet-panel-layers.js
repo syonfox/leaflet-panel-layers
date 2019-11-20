@@ -134,10 +134,18 @@ function getScrollbarWidth() {//gets the boewsers scrollbar width
         },
 
         hide: function(){
-            this._container.classList.add('hidden');
+             if (this.options.collapsiblePanel) {
+                 this._container.classList.add('minimized');
+            } else {
+                 this._container.classList.add('hidden');
+            }
         },
         show: function(){
-            this._container.classList.remove('hidden');
+            if (this.options.collapsiblePanel) {
+                this._container.classList.remove('minimized');
+            } else {
+                this._container.classList.remove('hidden');
+            }
         },
         clearLayers: function () {
             for (var i = 0; i < this._layers.length; i++) {
