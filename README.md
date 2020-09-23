@@ -11,7 +11,7 @@ Tested in Leaflet 0.7.x, 1.4.x
 
 **Demo:**
 
-[DEMO with some of the new features](https://portaldev.lorrnel.com/leaflet-panel-layers/examples/glyphicons.html)
+[DEMO with some of the new features]() No demo currently available on a public site. Comming soon.
 
 [labs.easyblog.it/maps/leaflet-panel-layers](http://labs.easyblog.it/maps/leaflet-panel-layers/)
 
